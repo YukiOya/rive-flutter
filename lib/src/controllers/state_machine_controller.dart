@@ -5,6 +5,7 @@ import 'package:rive/src/rive_core/animation/state_machine_input.dart' as core;
 import 'package:rive/src/rive_core/animation/state_machine_number.dart';
 import 'package:rive/src/rive_core/animation/state_machine_trigger.dart';
 import 'package:rive/src/rive_core/artboard.dart';
+import 'package:rive/src/rive_core/audio_player.dart';
 import 'package:rive/src/rive_core/state_machine_controller.dart' as core;
 import 'package:rive/src/runtime_mounted_artboard.dart';
 export 'package:rive/src/runtime_mounted_artboard.dart';
@@ -124,8 +125,10 @@ class StateMachineController extends core.StateMachineController
   StateMachineController(
     StateMachine stateMachine, {
     core.OnStateChange? onStateChange,
+    AudioPlayer? audioPlayer,
     // ignore: deprecated_member_use_from_same_package
-  }) : super(stateMachine, onStateChange: onStateChange) {
+  }) : super(stateMachine,
+            onStateChange: onStateChange, audioPlayer: audioPlayer) {
     isActive = true;
     for (final input in stateMachine.inputs) {
       switch (input.coreType) {

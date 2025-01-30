@@ -384,8 +384,9 @@ class StateMachineController extends RiveAnimationController<CoreContext>
   /// Constructor that takes a state machine and optional state change callback
   StateMachineController(
     this.stateMachine, {
+    AudioPlayer? audioPlayer,
     @Deprecated('Use `addEventListener` instead.') this.onStateChange,
-  });
+  }) : _audioPlayer = audioPlayer;
 
   /// Adds a Rive event listener to this controller.
   ///
